@@ -1,22 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import './css/Styles.css';
+import Itemlist from './components/ItemList.js';
 
 function App() {
+
+  var itemlist = [];
+  var mockupdata = [{
+    "text":'cosa para hacer 1',
+    "complete":false
+    },
+    {
+      "text":'cosa para hacer 2',
+      "complete":false
+      },
+      {
+        "text":'cosa para hacer 3',
+        "complete":false
+        },
+        {
+          "text":'cosa para hacer 4',
+          "complete":false
+          }];
+
+          
+
+          mockupdata.forEach(element => {
+            
+            itemlist.push(<Itemlist
+              text={element.text}
+              complete={element.complete}
+              />)
+          });
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ul>
+        {itemlist}
+        </ul>
       </header>
     </div>
   );
